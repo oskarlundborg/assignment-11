@@ -1,0 +1,286 @@
+/*Font*/
+@font-face {
+    font-family: 'neonregular';
+    src: url(../fonts/neon____-webfont.woff2) format('woff2'),
+         url(../fonts/neon____-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*Colors*/
+    :root {
+        --neoncolor: #56c0fd;
+        --glowcolor: #4e95ff;
+    }
+
+/*Body*/
+    .body /*size*/ {
+        width: 100%;
+    }
+    .body /*color*/ {
+        background-color: black;
+    }
+    .body /*display*/ {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+/*Header*/
+    .header /*size*/ {
+        width: 100%;
+        height: 100px;
+    }
+    .header /*border*/ {
+        border-bottom: 1px solid var(--neoncolor);
+        box-shadow: inset 0 -7px 4px -7px var(--glowcolor), 0 0 4px var(--glowcolor);
+    }
+    .header /*background*/ {
+        animation: glow 15s linear infinite;
+        background: rgb(12,12,59);
+        background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+    }
+    .header /*display*/ {
+        display: flex;
+        justify-content: center;
+    }
+
+/*Logo*/
+    .logo {
+        color: var(--neoncolor);
+        font-family: 'neonregular';
+        text-shadow: 0px 0px 7px var(--glowcolor);
+        font-size: 3rem;
+        animation: glow 15s linear infinite;
+    }
+
+/*Header Nav*/
+    .headerbox /*container size*/ {
+        max-width: 1440px;
+        width: 100%;
+        height: 100%;
+        padding: 1.5rem;
+    }
+
+
+/*Main*/
+    .main /*size*/ {
+        max-width: 1440px;
+        width: 100%;
+        min-height: 700px;
+    }
+    .main /*background*/ {
+        background-image:url(../images/background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .main /*display*/ {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+/*The Door*/
+    /*main div*/
+    .door /*style & size*/ {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*border: solid 3px var(--neoncolor);*/
+        width: 25em;
+        height: 25em;
+        /*box-shadow: inset 0 0 5px var(--glowcolor), 0 0 5px var(--glowcolor);*/
+    }
+    /*barcode*/
+    .barcode /*style*/{
+        position: absolute;
+        top: 1.5em;
+        left: 1em;
+        z-index: 1;
+        font-family: 'Libre Barcode EAN13 Text';
+        color: var(--neoncolor);
+        background: none;
+        border: none;
+        text-shadow: 0px 0px 5px var(--glowcolor);
+        font-size: 4rem;
+        animation: flicker 3s linear infinite;
+    }
+    .barcode:hover /*hover style*/{
+        font-family: 'zen dots';
+        top: 3.5em;
+        left: 2em;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /*barcode text spans*/
+    .click-span{
+        content: "";
+    }
+    .click-span:after{
+        content: "Click ";
+    }
+    .barcode:hover .click-span:after{
+        content: "";
+    }
+    .hereto-span{
+        content: "";
+    }
+    .hereto-span:after{
+        content: "here to ";
+    }
+    .barcode:hover .hereto-span:after{
+        content: "";
+    }
+
+    
+    /*door navigation*/
+    .door-nav {
+        z-index: 2;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 25em;
+        height: 25em;
+        border: solid 3px var(--neoncolor);
+        box-shadow: inset 0 0 5px var(--glowcolor), 0 0 5px var(--glowcolor);
+        background-image: url(../images/Neon\ Grid.jpg);
+        background-position: center;
+        animation: open-door .5s linear normal;
+    }
+    /*Open button (hidden)*/
+    .doorknob {
+        display: none;
+    }
+    .doorknob:checked ~ .door-nav {
+        display: flex;
+    }
+    /*close button*/
+    .exit-knob {
+        position: absolute;
+        top: 94.5%;
+        left: 95%;
+        font-family: 'Zen Dots';
+        font-size: 1rem;
+        color: var(--neoncolor);
+        text-shadow: 0px 0px 5px var(--glowcolor);
+        animation: flicker-two 1s linear infinite;
+        cursor: pointer;
+        animation: visibility 0.5s linear normal;
+    }
+    .exit-knob:hover{
+        border: 2px solid;
+        background: rgb(12,12,59);
+        background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+        box-shadow: 0px 0px 5px var(--glowcolor);
+        top: 94%;
+        left: 94.5%;
+        animation: none;
+    }
+    /*nav list*/
+    .door-ul {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-flow: column wrap;
+        width: 100%;
+        height: 100%;
+        animation: visibility 0.5s linear normal;
+    }
+    /*door link*/
+    .door-link {
+        padding: 0.2em;
+        font-family:sans-serif;
+        font-size: 2rem;
+        color: var(--neoncolor);
+        text-decoration: none;
+        text-shadow: 0px 0px 5px var(--glowcolor);
+        animation: flicker-two 1s linear infinite;
+        border: solid 2px var(--neoncolor);
+        box-shadow: inset 0 0 5px var(--glowcolor), 0 0 5px var(--glowcolor);
+        background: rgb(12,12,59);
+        background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+    }
+    .door-link:hover {
+        text-decoration: underline 2px;
+        font-size: 2.5rem;
+        animation: none;
+    }
+
+/*ANIMATIONS*/
+    /*Header animation*/    
+    @keyframes glow {
+        0% {filter: brightness(90%);}
+        24% {filter: brightness(105%); filter: blur(0px);}
+        25% {filter: brightness(1000%); filter: blur(1px);}
+        26% {filter: brightness(100%); filter: blur(0px);}
+        47% {filter: brightness(115%); filter: blur(0px);}
+        48% {filter: brightness(1000%); filter: blur(1px);}
+        49% {filter: brightness(115%); filter: blur(0px);}
+        50% {filter: brightness(70%);}
+        51% {filter: brightness(100%);}
+        74% {filter: brightness(100%); filter: blur(0px);}
+        75% {filter: brightness(1000%); filter: blur(1px);}
+        76% {filter: brightness(100%); filter: blur(0px);}
+    }
+    /*barcode flicker animation*/
+    @keyframes flicker {
+        0%{opacity: 0;}
+        1%{opacity: 1;}
+        14%{opacity: 1;}        
+        15%{opacity: 0;}
+        16%{opacity: 1;}
+        32%{opacity: 1; transform: skew(0deg);}
+        33%{opacity: 0; transform: skew(4deg);}
+        34%{opacity: 1; transform: skewY(0deg);}
+        44%{opacity: 1;}
+        45%{opacity: 0;}
+        46%{opacity: 1;}
+        65%{opacity: 1; transform: skewX(0deg);}
+        66%{opacity: 0; transform: skewX(30deg);}
+        67%{opacity: 1; transform: skewX(0deg);}
+        80%{opacity: 1; transform: skew(0deg);}
+        81%{opacity: 1; transform: skew(70deg);}
+        82%{opacity: 0; transform: skew(0deg);}
+        93%{opacity: 0;}
+        94%{opacity: 1;}
+        100%{opacity: 1;}
+    }
+    /*flicker animation two*/
+    @keyframes flicker-two {
+        0%{opacity: 1;}
+        1%{opacity: 0.5;}
+        2%{opacity: 1;}
+        9%{opacity: 1;}
+        10%{opacity: 0.5;}
+        11%{opacity: 1;}
+        29%{opacity: 1;}
+        30%{opacity: 0.5;}
+        31%{opacity: 1;}
+        49%{opacity: 1;}
+        50%{opacity: 0.5;}
+        51%{opacity: 1;}
+        69%{opacity: 1;}
+        70%{opacity: 0.5;}
+        71%{opacity: 1;}
+        89%{opacity: 1;}
+        90%{opacity: 0.5;}
+        91%{opacity: 1;}
+        98%{opacity: 1;}
+        99%{opacity: 0.5;}
+        100%{opacity: 1;}
+    }
+    /*Nav Open and Close*/
+    @keyframes open-door {
+        0%{height:0%; width: 0%;}
+        50%{height:0%; width: 100%;}
+        100%{height: 100%; width: 100%;}
+    }
+    @keyframes visibility {
+        0%{opacity: 0;}
+        95%{opacity: 0;}
+        100%{opacity: 1;}
+
+    }
